@@ -335,6 +335,11 @@ export default defineComponent({
     align-items: center;
     padding: 0 1.8rem;
     margin-top: 1rem;
+    position: sticky;
+    bottom: 0;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+
     .pagenation-big {
       background-color: #0201fd;
       color: #fff;
@@ -379,7 +384,7 @@ export default defineComponent({
       font-size: 15px;
     }
     color: #fff;
-    background: #7ecacc;
+    background: #ff9900;
   }
 
   min-height: 100vh;
