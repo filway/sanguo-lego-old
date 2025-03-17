@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 2025-03-17
+
+### Added
+- 编辑页面新增新字体的下拉选择
+- 首页分页按钮改为浮动定位
+- 首页温馨提示移到到分页按钮上方
+
 ## 2025-03-14
 
 ### Added

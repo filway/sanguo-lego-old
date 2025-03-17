@@ -112,6 +112,13 @@
       </div>
     </div>
 
+    <div v-show="!isLoading" class="tipsBox">
+      <p class="tips-title">温馨提示:</p>
+      <p>
+        {{ tips }}
+      </p>
+    </div>
+
     <div class="pageBox" v-show="!isLoading">
       <div class="pagenation-big" v-show="currentPage === 0" @click="nextPage()">下一款方案</div>
       <div class="pagenation-small-box">
@@ -134,12 +141,7 @@
         上一款方案
       </div>
     </div>
-    <div v-show="!isLoading" class="tipsBox">
-      <p class="tips-title">温馨提示:</p>
-      <p>
-        {{ tips }}
-      </p>
-    </div>
+   
     <span v-html="cp"></span>
     <!-- <img :src="imgBase64" alt="" width="340" /> -->
   </div>
@@ -375,7 +377,7 @@ export default defineComponent({
     border-radius: 8px;
     flex-direction: column;
     padding: 0 0.8rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     margin-bottom: 0.4rem;
     .tips-title {
       margin-bottom: 0;
