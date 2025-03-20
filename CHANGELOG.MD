@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 2025-03-20
+
+### Added
+- 将老版本一些未提交的commit整合到这个项目里面 (包含canvg引入, ios移动端刷新404, 提交后显示二维码等功能)
+
 ## 2025-03-17
 
 ### Added
@@ -21,8 +26,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 添加新字体：'cn_regular'和'semibold1217'
 - 在模板属性中添加设计理念、主色调、背景色、横版字体和竖版字体字段
 - 改进横版和竖版布局的字体处理
-- 编辑页面新增新字体的下拉选择
-- 首页分页按钮改为浮动定位
 
 ### Changed
 - 更新API基础URL至HTTPS端点(lgg.qiyuan3.cn)
