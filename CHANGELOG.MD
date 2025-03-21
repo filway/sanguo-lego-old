@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 2025-03-21
+
+### Added
+- 去掉字体加粗的样式
+
 ## 2025-03-20
 
 ### Added
