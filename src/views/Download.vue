@@ -7,6 +7,7 @@
           <component
             :style="{ backgroundColor: '#ffffff' }"
             :is="'svg'"
+            ref="svgRef"
             baseProfile="full"
             version="1.1"
             :class="'svg' + key"
