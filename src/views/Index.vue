@@ -1,45 +1,22 @@
 /* eslint-disable prettier/prettier */
 <template>
   <div class="homepage-container" :style="{ background: '#f8f8f8' }">
-    <preview-dialog
-      @close="closePreviewDialog"
-      :show="showPreview"
-      :logoId="currentId"
-      :previewData="previewData"
-      @clickDownload="openDownloadDialog"
-    ></preview-dialog>
+    <preview-dialog @close="closePreviewDialog" :show="showPreview" :logoId="currentId" :previewData="previewData"
+      @clickDownload="openDownloadDialog"></preview-dialog>
     <van-row class="logoTips">
       <van-col span="24">Logo结果选择</van-col>
     </van-row>
-    <van-loading
-      class="loadingBox"
-      v-if="isLoading"
-      style="text-align: center"
-      size="24px"
-      vertical
-      color="#fff"
-      >Logo生成中...</van-loading
-    >
+    <van-loading class="loadingBox" v-if="isLoading" style="text-align: center" size="24px" vertical
+      color="#fff">Logo生成中...</van-loading>
     <div v-show="!isLoading" class="page">
       <div class="logo-desc" v-show="currentPage === 0">
         {{ title }}
       </div>
-      <div
-        @click="openPreviewDialog(logo.materialId, logo.randomIndex, key)"
-        v-for="(logo, key) in logoList"
-        :key="key"
-        class="card-box"
-        v-show="currentPage === key"
-      >
+      <div @click="openPreviewDialog(logo.materialId, logo.randomIndex, key)" v-for="(logo, key) in logoList" :key="key"
+        class="card-box" v-show="currentPage === key">
         <div class="logo-box">
-          <component
-            baseProfile="full"
-            :is="'svg'"
-            version="1.1"
-            :class="'svg' + key"
-            viewBox="0 0 686 380.78"
-            xmlns="http://www.w3.org/2000/svg"
-          />
+          <component baseProfile="full" :is="'svg'" version="1.1" :class="'svg' + key" viewBox="0 0 686 380.78"
+            xmlns="http://www.w3.org/2000/svg" />
         </div>
         <div class="text-box animate__animated animate__bounce">点击选择此方案</div>
       </div>
@@ -47,68 +24,35 @@
       <div v-show="logoList[currentPage] && logoList[currentPage].design" class="ll-box">
         <p class="page-p">{{ logoList[currentPage] ? logoList[currentPage].design : "" }}</p>
       </div>
-      <div
-        class="page-screen"
-        v-for="(logo, key) in logoList"
-        :key="key"
-        v-show="currentPage === key"
-      >
-        <div
-          :class="`page-bg page-bg-01 page-bg-img page-insert-${key}`"
-          :style="
-            `background-image: url(` +
-            require(`../assets/img/cj2/${bgImgIndexArr[key]}/1.jpg`) +
-            `)`
-          "
-        ></div>
+      <div class="page-screen" v-for="(logo, key) in logoList" :key="key" v-show="currentPage === key">
+        <div :class="`page-bg page-bg-01 page-bg-img page-insert-${key}`" :style="`background-image: url(` +
+          require(`../assets/img/cj2/${bgImgIndexArr[key]}/1.jpg`) +
+          `)`
+          "></div>
         <div class="page-bg page-bg-02">
-          <div
-            :class="`page-bg-img page-bg-02-left page-insert-${key}`"
-            :style="
-              `background-image: url(` +
-              require(`../assets/img/cj2/${bgImgIndexArr[key]}/2.jpg`) +
-              `)`
-            "
-          ></div>
+          <div :class="`page-bg-img page-bg-02-left page-insert-${key}`" :style="`background-image: url(` +
+            require(`../assets/img/cj2/${bgImgIndexArr[key]}/2.jpg`) +
+            `)`
+            "></div>
           <div class="page-bg-02-right">
-            <div
-              :class="`page-bg-img page-insert-${key}`"
-              :style="`background-color: #7F7F81`"
-            ></div>
-            <div
-              :class="`page-bg-img page-insert-${key}`"
-              :style="`background-color: #B2B2B2`"
-            ></div>
+            <div :class="`page-bg-img page-insert-${key}`" :style="`background-color: #7F7F81`"></div>
+            <div :class="`page-bg-img page-insert-${key}`" :style="`background-color: #B2B2B2`"></div>
           </div>
         </div>
-        <div
-          :class="`page-bg page-bg-04 page-bg-img page-insert-${key}`"
-          :style="
-            `background-image: url(` +
-            require(`../assets/img/cj2/${bgImgIndexArr[key]}/6.jpg`) +
-            `)`
-          "
-        ></div>
-        <div
-          :class="`page-bg page-bg-07 page-bg-img page-insert-${key}`"
-          :style="`background-image: url(` + require(`../assets/img/cj/show3.png`) + `)`"
-        ></div>
-        <div
-          :class="`page-bg page-bg-05 page-bg-img page-insert-${key}`"
-          :style="
-            `background-image: url(` +
-            require(`../assets/img/cj2/${bgImgIndexArr[key]}/7.jpg`) +
-            `);height: 100vw`
-          "
-        ></div>
-        <div
-          :class="`page-bg page-bg-06 page-bg-img page-insert-${key}`"
-          :style="
-            `background-image: url(` +
-            require(`../assets/img/cj2/${bgImgIndexArr[key]}/8.jpg`) +
-            `);height: 80vw`
-          "
-        ></div>
+        <div :class="`page-bg page-bg-04 page-bg-img page-insert-${key}`" :style="`background-image: url(` +
+          require(`../assets/img/cj2/${bgImgIndexArr[key]}/6.jpg`) +
+          `)`
+          "></div>
+        <div :class="`page-bg page-bg-07 page-bg-img page-insert-${key}`"
+          :style="`background-image: url(` + require(`../assets/img/cj/show3.png`) + `)`"></div>
+        <div :class="`page-bg page-bg-05 page-bg-img page-insert-${key}`" :style="`background-image: url(` +
+          require(`../assets/img/cj2/${bgImgIndexArr[key]}/7.jpg`) +
+          `);height: 100vw`
+          "></div>
+        <div :class="`page-bg page-bg-06 page-bg-img page-insert-${key}`" :style="`background-image: url(` +
+          require(`../assets/img/cj2/${bgImgIndexArr[key]}/8.jpg`) +
+          `);height: 80vw`
+          "></div>
       </div>
     </div>
 
@@ -122,18 +66,10 @@
     <div class="pageBox" v-show="!isLoading">
       <div class="pagenation-big" v-show="currentPage === 0" @click="nextPage()">下一款方案</div>
       <div class="pagenation-small-box">
-        <div
-          class="pagenation-small"
-          v-show="currentPage > 0 && currentPage < logoList.length - 1"
-          @click="prevPage()"
-        >
+        <div class="pagenation-small" v-show="currentPage > 0 && currentPage < logoList.length - 1" @click="prevPage()">
           上一款方案
         </div>
-        <div
-          class="pagenation-small"
-          v-show="currentPage > 0 && currentPage < logoList.length - 1"
-          @click="nextPage()"
-        >
+        <div class="pagenation-small" v-show="currentPage > 0 && currentPage < logoList.length - 1" @click="nextPage()">
           下一款方案
         </div>
       </div>
@@ -141,9 +77,14 @@
         上一款方案
       </div>
     </div>
-   
+
     <span v-html="cp"></span>
-    <!-- <img :src="imgBase64" alt="" width="340" /> -->
+    <!-- 免责声明弹窗 -->
+    <van-dialog v-if="free_statement && free_statement.length > 0" v-model:show="isShowFreeStatement"
+      class="freeStatementDialog" theme="round-button" :confirm-button-text="confirmText" width="90%"
+      transition="bounce" :confirm-button-color="confirmTextColor" :before-close="onCloseFreeStatementDialog">
+      <div v-html="free_statement" class="content-box"></div>
+    </van-dialog>
   </div>
 </template>
 
@@ -178,6 +119,16 @@ export default defineComponent({
     const cp = computed(() => store.state.templates.cp)
     const title = computed(() => store.state.templates.title)
     const tips = computed(() => store.state.templates.tips)
+
+    /* 免责声明相关 start */
+    const free_statement = computed(() => store.state.templates.free_statement)
+    const isShowFreeStatement = ref(false)
+    // 判断如果有免责声明，就启动一个3s的倒计时, 倒计时结束之后才能点击确定
+    const confirmTextColor = ref('#ccc')
+    const count = ref(3)
+    const confirmText = computed(() => count.value === 0 ? '我已知晓' : `我已知晓(${count.value}s)`)
+    /* 免责声明相关 end */
+
     provide('key', currentIndex)
 
     const previewData = ref<any[]>([])
@@ -247,6 +198,16 @@ export default defineComponent({
       toTop()
     }
 
+    const onCloseFreeStatementDialog = (action: string) =>
+      new Promise(resolve => {
+        // 判断count
+        if (count.value === 0) {
+          resolve(true)
+        } else {
+          resolve(false)
+        }
+      })
+
     onMounted(async () => {
       let { sn } = route.query
       localStorage.setItem('sn', sn as string)
@@ -267,6 +228,17 @@ export default defineComponent({
           $('.page-screen').eq(index).find('.page-bg-img').eq(k).html(item[k])
         }
       })
+
+      if (free_statement.value && free_statement.value.length > 0) {
+        isShowFreeStatement.value = true
+        const timer = setInterval(() => {
+          count.value--
+          if (count.value === 0) {
+            confirmTextColor.value = '#ee0a24'
+            clearInterval(timer)
+          }
+        }, 1000)
+      }
     })
 
     return {
@@ -287,6 +259,11 @@ export default defineComponent({
       bgImgIndexArr,
       title,
       tips,
+      free_statement,
+      isShowFreeStatement,
+      confirmTextColor,
+      confirmText,
+      onCloseFreeStatementDialog,
     }
   },
 })
@@ -299,6 +276,7 @@ export default defineComponent({
     font-weight: 300;
     font-size: 14px;
   }
+
   .loadingBox {
     text-align: center;
     height: 12rem;
@@ -310,12 +288,14 @@ export default defineComponent({
     color: #fff;
     border-radius: 5px;
   }
+
   .page-t {
     margin: 0.5rem 0 0 0;
     font-size: 5.333vw;
     text-align: center;
     margin-top: 1rem;
   }
+
   .ll-box {
     margin-top: 0.5rem;
     text-align: center;
@@ -362,10 +342,12 @@ export default defineComponent({
       margin-bottom: 0.5rem;
       cursor: pointer;
     }
+
     .pagenation-small-box {
       width: 300px;
       display: flex;
       justify-content: space-evenly;
+
       .pagenation-small {
         background-color: #0201fd;
         color: #fff;
@@ -378,6 +360,7 @@ export default defineComponent({
         cursor: pointer;
       }
     }
+
     // background: url("../assets/img/img_banner.jpg");
   }
 
@@ -388,18 +371,22 @@ export default defineComponent({
     padding: 0 0.8rem;
     margin-top: 1rem;
     margin-bottom: 0.4rem;
+
     .tips-title {
       margin-bottom: 0;
     }
+
     p {
       font-size: 15px;
     }
+
     color: #fff;
     background: #ff9900;
   }
 
   min-height: 100vh;
   padding: 0.5rem 1rem;
+
   .logo-desc {
     color: #fff;
     background-color: #0201fd;
@@ -411,34 +398,43 @@ export default defineComponent({
     align-items: center;
     margin-bottom: 1rem;
   }
+
   .page-title {
     font-size: 5.333vw;
     text-align: center;
     margin: 0.8rem 0;
   }
+
   .page-screen {
+
     // animation: zoomIn; /* referring directly to the animation's @keyframe declaration */
     // animation-duration: 2s; /* don't forget to set a duration! */
     img {
       width: 100%;
       height: 100%;
     }
+
     .page-bg {
       height: 56vw;
     }
+
     .page-bg-img {
       background-size: 100% 100%;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+
     .page-bg-02 {
       display: flex;
+
       .page-bg-02-left {
         width: 50%;
       }
+
       .page-bg-02-right {
         width: 50%;
+
         div {
           width: 100%;
           height: 50%;
@@ -446,6 +442,7 @@ export default defineComponent({
       }
     }
   }
+
   .card-box {
     display: flex;
     flex-direction: column;
@@ -454,19 +451,32 @@ export default defineComponent({
     background: #fff;
     border: 3px solid #9d9d9d;
     border-radius: 8px;
-    animation: zoomIn; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 1s; /* don't forget to set a duration! */
+    animation: zoomIn;
+    /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 1s;
+
+    /* don't forget to set a duration! */
     .logo-box {
       height: 85%;
+
       svg {
         width: 100%;
         height: 100%;
       }
     }
+
     .text-box {
       text-align: center;
       color: #d9d9d9;
       font-size: 14px;
+    }
+  }
+
+  .freeStatementDialog {
+    .content-box {
+      max-height: 500px;
+      overflow-y: auto;
+      padding: 1rem;
     }
   }
 }
