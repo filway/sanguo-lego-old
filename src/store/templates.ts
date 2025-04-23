@@ -27,6 +27,7 @@ export interface TemplateProps {
   bg_color: string // 背景色
   font_l: string // 横版字体
   font_v: string // 竖版字体
+  imgIndex: number
 }
 
 export interface TemplatesProps {

@@ -26,12 +26,12 @@
       </div>
       <div class="page-screen" v-for="(logo, key) in logoList" :key="key" v-show="currentPage === key">
         <div :class="`page-bg page-bg-01 page-bg-img page-insert-${key}`" :style="`background-image: url(` +
-          require(`../assets/img/cj2/${bgImgIndexArr[key]}/1.jpg`) +
+          require(`../assets/img/cj2/${logo.imgIndex}/1.jpg`) +
           `)`
           "></div>
         <div class="page-bg page-bg-02">
           <div :class="`page-bg-img page-bg-02-left page-insert-${key}`" :style="`background-image: url(` +
-            require(`../assets/img/cj2/${bgImgIndexArr[key]}/2.jpg`) +
+            require(`../assets/img/cj2/${logo.imgIndex}/2.jpg`) +
             `)`
             "></div>
           <div class="page-bg-02-right">
@@ -40,17 +40,17 @@
           </div>
         </div>
         <div :class="`page-bg page-bg-04 page-bg-img page-insert-${key}`" :style="`background-image: url(` +
-          require(`../assets/img/cj2/${bgImgIndexArr[key]}/6.jpg`) +
+          require(`../assets/img/cj2/${logo.imgIndex}/6.jpg`) +
           `)`
           "></div>
         <div :class="`page-bg page-bg-07 page-bg-img page-insert-${key}`"
           :style="`background-image: url(` + require(`../assets/img/cj/show3.png`) + `)`"></div>
         <div :class="`page-bg page-bg-05 page-bg-img page-insert-${key}`" :style="`background-image: url(` +
-          require(`../assets/img/cj2/${bgImgIndexArr[key]}/7.jpg`) +
+          require(`../assets/img/cj2/${logo.imgIndex}/7.jpg`) +
           `);height: 100vw`
           "></div>
         <div :class="`page-bg page-bg-06 page-bg-img page-insert-${key}`" :style="`background-image: url(` +
-          require(`../assets/img/cj2/${bgImgIndexArr[key]}/8.jpg`) +
+          require(`../assets/img/cj2/${logo.imgIndex}/8.jpg`) +
           `);height: 80vw`
           "></div>
       </div>
@@ -132,17 +132,6 @@ export default defineComponent({
     provide('key', currentIndex)
 
     const previewData = ref<any[]>([])
-
-    const bgImgIndexArr = ref([0, 0, 1, 1, 2, 2, 3, 3, 4, 4])
-
-    // 2024-09-13 判断logolist的长度，如果大于10，那么就减去10，然后循环数量，将bgImgIndexArr填充对应数量的4
-    if (logoList.value.length > 10) {
-      const num = logoList.value.length - 10
-      for (let i = 0; i < num; i++) {
-        bgImgIndexArr.value.push(4)
-      }
-    }
-    console.log(bgImgIndexArr.value)
 
     const imgBase64 = ref('')
     const openPreviewDialog = (id: number, index: number, key: number) => {
@@ -256,7 +245,6 @@ export default defineComponent({
       currentPage,
       nextPage,
       prevPage,
-      bgImgIndexArr,
       title,
       tips,
       free_statement,
